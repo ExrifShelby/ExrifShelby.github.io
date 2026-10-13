@@ -1,53 +1,69 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EXRIF SHELBY OFFICIAL</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SYSTEM BREACHED BY EXRIF SHELBY</title>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Share+Tech+Mono&family=Orbitron:wght@900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;color:#fff;overflow:hidden;font-family:'Share Tech Mono',monospace;height:100vh;display:flex;align-items:center;justify-content:center}
+body{background:#000;color:#ff0000;overflow:hidden;font-family:'Share Tech Mono',monospace;height:100vh}
 canvas{position:fixed;top:0;left:0;z-index:1}
-.container{position:relative;z-index:2;text-align:center;padding:20px;border:2px solid #ff0000;box-shadow:0 0 30px #ff0000, inset 0 0 30px rgba(255,0,0,0.1);background:rgba(0,0,0,0.85);max-width:90%;backdrop-filter:blur(5px)}
-.glitch{font-family:'Orbitron',sans-serif;font-size: clamp(32px, 8vw, 64px);font-weight:900;color:#fff;position:relative;letter-spacing:4px;text-shadow:0 0 10px #ff0000}
-.glitch::before,.glitch::after{content:'EXRIF SHELBY';position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden}
-.glitch::before{left:-2px;text-shadow:2px 0 #00ffff;animation:glitch1 2s infinite linear alternate-reverse}
-.glitch::after{left:2px;text-shadow:-2px 0 #ff0000;animation:glitch2 2s infinite linear alternate-reverse}
-@keyframes glitch1{0%{clip-path:inset(20% 0 60% 0)}100%{clip-path:inset(60% 0 20% 0)}}
-@keyframes glitch2{0%{clip-path:inset(60% 0 20% 0)}100%{clip-path:inset(20% 0 60% 0)}}
-.typing{margin:15px 0;color:#ff0000;font-size: clamp(14px, 3vw, 18px);min-height:24px}
-.status{display:inline-block;padding:5px 15px;border:1px solid #0f0;color:#0f0;font-size:12px;margin:10px 0;box-shadow:0 0 10px #0f0;animation:blink 1s infinite}
-@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0.3}}
-.links{margin-top:25px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.links a{text-decoration:none;color:#fff;border:1px solid #ff0000;padding:10px 20px;transition:0.3s;position:relative;overflow:hidden}
-.links a:hover{background:#ff0000;color:#000;box-shadow:0 0 20px #ff0000;transform:scale(1.05)}
-.footer{margin-top:20px;font-size:10px;color:#666;letter-spacing:2px}
+.bg{position:fixed;inset:0;background:radial-gradient(circle at center, #1a0000 0%, #000 70%);z-index:1}
+.container{position:relative;z-index:5;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+.skull{font-size:80px;animation:shake 0.2s infinite, glow 1s infinite alternate}
+@keyframes shake{0%{transform:translate(1px,1px)}50%{transform:translate(-1px,-1px)}100%{transform:translate(1px,-1px)}}
+@keyframes glow{0%{text-shadow:0 0 20px #f00,0 0 40px #f00}100%{text-shadow:0 0 30px #f00,0 0 60px #f00,0 0 80px #f00}}
+.hacked{font-family:'Orbitron',sans-serif;font-size:clamp(28px,7vw,55px);font-weight:900;letter-spacing:5px;color:#fff;position:relative;margin:10px 0}
+.hacked span{color:#ff0000;text-shadow:0 0 15px #ff0000}
+.glitch{animation:glitch 0.3s infinite}
+@keyframes glitch{0%{transform:translate(0)}20%{transform:translate(-2px,2px);color:#0ff}40%{transform:translate(2px,-2px);color:#f0f}60%{transform:translate(-1px,1px)}80%{transform:translate(1px,-1px);color:#ff0}100%{transform:translate(0)}}
+.warn{background:#ff0000;color:#000;padding:5px 20px;font-weight:900;letter-spacing:3px;margin:10px 0;animation:blink 0.5s infinite}
+@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
+.term{border:1px solid #ff0000;background:rgba(20,0,0,0.9);padding:15px;width:90%;max-width:550px;text-align:left;margin:15px 0;box-shadow:0 0 25px #ff000044;font-size:13px;line-height:1.6}
+.term p{margin:4px 0}
+.cursor::after{content:'█';animation:blink 0.8s infinite}
+.links{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.links a{color:#ff0000;border:1px solid #ff0000;padding:10px 22px;text-decoration:none;transition:0.2s;font-weight:700;letter-spacing:1px}
+.links a:hover{background:#ff0000;color:#000;box-shadow:0 0 25px #ff0000;transform:scale(1.1)}
+.footer{position:absolute;bottom:10px;font-size:9px;color:#500;letter-spacing:3px}
 </style>
 </head>
 <body>
 <canvas id="c"></canvas>
+<div class="bg"></div>
 <div class="container">
-<div class="status">● SYSTEM ONLINE</div>
-<div class="glitch">EXRIF SHELBY</div>
-<div class="typing" id="typing"></div>
+<div class="skull">☠️</div>
+<div class="warn">⚠️ SYSTEM BREACHED ⚠️</div>
+<div class="hacked glitch">HACKED BY <span>EXRIF SHELBY</span></div>
+
+<div class="term" id="term">
+<p>> Accessing mainframe...</p>
+<p>> Bypassing firewall... [OK]</p>
+<p>> Injecting payload... [OK]</p>
+<p>> Root access granted.</p>
+<p>> <span style="color:#fff" id="type"></span><span class="cursor"></span></p>
+</div>
+
 <div class="links">
 <a href="https://tiktok.com/@exrifshelby" target="_blank">TIKTOK</a>
 <a href="https://youtube.com/@exrifshelby" target="_blank">YOUTUBE</a>
 <a href="https://instagram.com/exrifshelby" target="_blank">INSTAGRAM</a>
-<a href="https://wa.me/628xxxx" target="_blank">WHATSAPP</a>
 </div>
-<div class="footer">EST. 2026 // CIJULANG - WEST JAVA // EXRIF SHELBY OFFICIAL</div>
+<div class="footer">EXRIF SHELBY OFFICIAL // WE ARE WATCHING // 2026</div>
 </div>
+
 <script>
-// MATRIX RAIN
+// BLOOD RAIN
 const canvas=document.getElementById('c'),ctx=canvas.getContext('2d');
-canvas.width=window.innerWidth;canvas.height=window.innerHeight;
-const chars="EXRIFSHELBY01";const fontSize=14;const columns=canvas.width/fontSize;const drops=[];for(let x=0;x<columns;x++)drops[x]=1;
-function draw(){ctx.fillStyle='rgba(0,0,0,0.05)';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#f00';ctx.font=fontSize+'px monospace';for(let i=0;i<drops.length;i++){const text=chars[Math.floor(Math.random()*chars.length)];ctx.fillText(text,i*fontSize,drops[i]*fontSize);if(drops[i]*fontSize>canvas.height&&Math.random()>0.975)drops[i]=0;drops[i]++}}setInterval(draw,35);
+canvas.width=innerWidth;canvas.height=innerHeight;
+const chars="EXRIFSHELBY01#@$%&/\\";const drops=[];for(let i=0;i<Math.floor(canvas.width/14);i++)drops[i]=Math.random()*-100;
+function draw(){ctx.fillStyle='rgba(0,0,0,0.07)';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#ff0000';ctx.font='14px monospace';drops.forEach((y,i)=>{const t=chars[Math.floor(Math.random()*chars.length)];ctx.fillText(t,i*14,y);if(y>canvas.height&&Math.random()>0.975)drops[i]=0;drops[i]+=14+Math.random()*10})}setInterval(draw,40);
+
 // TYPING
-const texts=["I AM EXRIF SHELBY...","CYBER ENTHUSIAST FROM CIJULANG","WELCOME TO MY DOMAIN..."];let count=0,txtIndex=0,current="";function type(){if(count===texts.length)count=0;current=texts[count];let t=current.substring(0,txtIndex+1);document.getElementById('typing').innerHTML=t+"█";txtIndex++;if(t===current){setTimeout(()=>{txtIndex=0;count++;},1500)}setTimeout(type,80)}type();
-window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight});
+const text="I AM EXRIF SHELBY. YOU HAVE ENTERED MY DOMAIN. THERE IS NO ESCAPE.";
+let idx=0;function typing(){if(idx<=text.length){document.getElementById('type').innerText=text.substring(0,idx);idx++;setTimeout(typing,50)}}typing();
+addEventListener('resize',()=>{canvas.width=innerWidth;canvas.height=innerHeight});
 </script>
 </body>
 </html>
