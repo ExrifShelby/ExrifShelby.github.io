@@ -1,0 +1,40 @@
+#include <a_samp> // JUAL LAGIH AWAS GW CAPEK CODING //
+PUNYA KYY
+#define SPAM_CHAT_LIMIT 5 // 5 chat dalam 2 detik = spam
+#define SPAM_CHAT_TIME 2000
+#define GODMODE_CHECK 3 // Cek 3x masih 100 health = curiga
+
+new gChatCount[MAX_PLAYERS];
+new gLastChatTick[MAX_PLAYERS];
+new gGodCheck[MAX_PLAYERS];
+
+public OnFilterScriptInit()
+{
+    print("Anti Mod Lua / Anti CLEO Aktif");
+    return 1;
+}
+
+public OnPlayerConnect(playerid)
+{
+    gChatCount[playerid] = 0;
+    gGodCheck[playerid] = 0;
+    return 1;
+}
+
+public OnPlayerText(playerid, text[])
+{
+    new tick = GetTickCount();
+
+    // 1. DETEKSI SPAM CHAT - ciri khas mod lua spam
+    if(tick - gLastChatTick[playerid] < SPAM_CHAT_TIME)
+    {
+        gChatCount[playerid]++;
+    }
+    else
+    {
+        gChatCount[playerid] = 1;
+    }
+    gLastChatTick[playerid] = tick;
+
+    if(gChatCount[playerid] >= SPAM_CHAT_LIMIT)
+    {

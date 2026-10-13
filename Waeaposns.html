@@ -1,0 +1,38 @@
+if selected_tab == 2 then
+        imgui.Text(u8"🔫 WEAPON MENU")
+        imgui.Separator()
+        
+        if imgui.Button(u8"SPAWN ALL WEAPONS", imgui.ImVec2(200, 30)) then
+            sampSendChat("/weapons")
+            show_notification("[WEAPONS] Semua senjata diberikan!", 3000)
+        end
+        
+        imgui.Separator()
+        imgui.Text(u8"Weapon Ammo:")
+        
+        if imgui.Button(u8"M4 + 9999 Ammo", imgui.ImVec2(200, 30)) then
+            sampSendChat("/givemweapon 31 9999")
+            show_notification("[M4] 9999 ammo", 3000)
+        end
+        
+        if imgui.Button(u8"AK47 + 9999 Ammo", imgui.ImVec2(200, 30)) then
+            sampSendChat("/givemweapon 30 9999")
+            show_notification("[AK47] 9999 ammo", 3000)
+        end
+        
+        if imgui.Button(u8"Deagle + 9999 Ammo", imgui.ImVec2(200, 30)) then
+            sampSendChat("/givemweapon 24 9999")
+            show_notification("[DEAGLE] 9999 ammo", 3000)
+        end
+        
+        imgui.Separator()
+        
+        if imgui.Checkbox(u8"Infinite Ammo", weapons_enabled) then
+            weapons_enabled = not weapons_enabled
+            if weapons_enabled then
+                show_notification("[INFINITE AMMO] AKTIF!", 3000)
+            else
+                show_notification("[INFINITE AMMO] MATIKAN!", 3000)
+            end
+        end
+    end

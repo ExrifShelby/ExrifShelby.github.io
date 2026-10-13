@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html><head><title>RC SHOOTER V12.5</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+body{margin:0;background:#000;overflow:hidden;font-family:'Arial Black'}
+canvas{display:block;background:linear-gradient(#001133, #330000)}
+#controls{position:absolute;bottom:40px;left:40px;display:flex;gap:25px;z-index:10}
+.btn{width:95px;height:95px;background:rgba(0,255,255,0.1);border:4px solid #0ff;border-radius:50%;color:#0ff;font-size:34px;box-shadow:0 0 30px #0ff;touch-action:none}
+#shoot{position:absolute;right:30px;bottom:70px;width:125px;height:125px;background:linear-gradient(#ff0000,#aa0000);font-size:22px;font-weight:bold;border-color:#ff0;box-shadow:0 0 35px red}
+#info{position:absolute;top:15px;left:20px;color:#0ff;background:rgba(0,0,0,0.9);padding:18px 28px;border-radius:18px;font-size:24px;font-weight:bold;border:3px solid #0ff;text-shadow:0 0 10px #0ff}
+</style></head>
+<body>
+<div id="info">RC SHOOTER V12.5 | Score: 0 | Nyawa: 3</div>
+<canvas id="game"></canvas>
+<div id="controls"><button class="btn" id="left">◀</button><button class="btn" id="right">▶</button><button class="btn" id="jump">▲</button></div>
+<button class="btn" id="shoot">TEMBAK</button>
+<script>
+const c=document.getElementById('game'),ctx=c.getContext('2d'),info=document.getElementById('info');
+c.width=innerWidth;c.height=innerHeight;
+
+// 1. SOUND TEMBAKAN BENERAN
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+function playSound(type){
+  if(audioCtx.state==='suspended')audioCtx.resume();
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.connect(gain); gain.connect(audioCtx.destination);
+  if(type=='shoot'){osc.type='square';osc.frequency.value=1000;gain.gain.setValueAtTime(0.5,audioCtx.currentTime);gain.gain.exponentialRampToValueAtTime(0.01,audioCtx.currentTime+0.07);}
+  if(type=='hit'){osc.type='sine';osc.frequency.value=100;gain.gain.setValueAtTime(0.6,audioCtx.currentTime);gain.gain.exponentialRampToValueAtTime(0.01,audioCtx.currentTime+0.3);}
+  osc.start();osc.stop(audioCtx.currentTime+0.2);
+}
+
+let kamera=0;
+
+// 2. KARAKTER REALISTIS HD BANGET
+function drawPlayer(x,y){
+  ctx.fillStyle="#0088ff"; ctx.fillRect(x+5,y+12,40,38); // badan armor
+  ctx.fillStyle="#ffdbac"; ctx.fillRect(x+10,y-3,22,20); // kepala
+  ctx.fillStyle="black"; ctx.fillRect(x+45,y+21,28,10); // senapan panjang
+  ctx.fillStyle="#111"; ctx.fillRect(x+7,y+50,14,16); ctx.fillRect(x+29,y+50,14,16); // kaki sepatu
+  ctx.fillStyle="white"; ctx.fillRect(x+15,y+3,6,4); // mata
+  ctx.fillStyle="#ff0"; ctx.fillRect(x+20,y+16,5,5); // lampu dada
+}
+function drawEnemy(x,y){
+  ctx.fillStyle="#00ff00"; ctx.fillRect(x+4,y+12,32,38);
+  ctx.fillStyle="#ff0000"; ctx.fillRect(x+8,y-2,20,18); // helm
+  ctx.fillStyle="black"; ctx.fillRect(x-16,y+26,22,9);
+  ctx.fillStyle="#111"; ctx.fillRect(x+6,y+50,12,14); ctx.fillRect(x+24,y+50,12,14);
+}
+function drawBullet(x,y){
+  ctx.fillStyle="#ffff00"; ctx.shadowBlur=25; ctx.shadowColor="yellow";
+  ctx.fillRect(x,y,20,8); ctx.shadowBlur=0;
+}
+
+let p={x:100,y:c.height-120,w:50,h:60,vy:0,s:8},b=[],e=[],eb=[],ex=[],keys={},score=0,nyawa=3;
+for(let i=0;i<100;i++)e.push({x:2000+i*240,y:c.height-120,hp:5}); // MUSUH SUSAH BANGET HP 5
+['left','right','jump'].forEach(id=>{document.getElementById(id).ontouchstart=()=>keys[id]=1;document.getElementById(id).ontouchend=()=>keys[id]=0;})
+document.getElementById('shoot').onclick=()=>{b.push({x:p.x+70,y:p.y+25,dx:20});playSound('shoot');}
+c.onclick=()=>location.reload();
+
+function u(){
+
+// 3. PLAYER AUTO MAJU TERUS
+p.x += 3; // AUTO RUN CEPET
+if(keys.right)p.x+=p.s;
+if(keys.left)p.x-=p.s; if(p.x<0)p.x=0;
+
+// 4. KAMERA NGIKUTIN MULUS
+kamera = p.x - c.width/3;
+if(kamera<0)kamera=0;
+
+if(keys.jump&&p.y>=c.height-120){p.vy=-22;keys.jump=0;}
+p.vy+=0.8;p.y+=p.vy;if(p.y>c.height-120)p.y=c.height-120;
+
+// 5. PELURU GA TEMBUS + KENA LANGSUNG HILANG
+for(let i=b.length-1;i>=0;i--){
+  b[i].x+=b[i].dx;
+  let hit=false;
+  e.forEach(en=>{
+    if(Math.abs(b[i].x-en.x)<45&&Math.abs(b[i].y-en.y)<45){
+      en.hp--;hit=true;score+=20;playSound('hit');
+      if(en.hp<=0)ex.push({x:en.x+16,y:en.y+30,t:40})
+    }
+  })
+  if(hit)b.splice(i,1);
+}
+b=b.filter(bu=>bu.x<kamera+c.width+500);
+
+// 6. MUSUH LEBIH SUSAH
+e.forEach(en=>{
+  en.x -= 3.5; // LEBIH CEPET
+  if(Math.random()<0.1)eb.push({x:en.x,y:en.y+35,dx:-16}); // LEBIH SERING NEMBAK
+});
+e=e.filter(en=>en.hp>0);
+
+// 7. FIX BUG CRITICAL: PELURU MUSUH CUMA NGURANGIN KALO KENA PLAYER
+for(let i=eb.length-1;i>=0;i--){
+  eb[i].x+=eb[i].dx;
+  if(Math.abs(eb[i].x-p.x

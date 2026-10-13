@@ -1,0 +1,67 @@
+#include <a_samp>
+
+#define AIRBREAK_DISTANCE 100.0 // Maksimal loncat normal 100 meter. Diatas itu = curiga
+#define AIRBREAK_TIME 3 // Deteksi selama 3 detik di udara
+
+new Float:gLastPos[MAX_PLAYERS][3];
+new gAirTime[MAX_PLAYERS];
+new gLastTick[MAX_PLAYERS];
+
+public OnFilterScriptInit()
+{
+    print("Anti Airbreak Aktif");
+    return 1;
+}
+
+public OnPlayerConnect(playerid)
+{
+    GetPlayerPos(playerid, gLastPos[playerid][0], gLastPos[playerid][1], gLastPos[playerid][2]);
+    gAirTime[playerid] = 0;
+    gLastTick[playerid] = GetTickCount();
+    return 1;
+}
+
+public OnPlayerUpdate(playerid)
+{
+    new Float:x, Float:y, Float:z;
+    GetPlayerPos(playerid, x, y, z);
+    
+    // Cek apakah player di udara
+    if(!IsPlayerInAnyVehicle(playerid) &&!IsPlayerInWater(playerid))
+    {
+        if(z > gLastPos[playerid][2] + 2.0 && GetPlayerSurfingObjectID(playerid) == INVALID_OBJECT_ID)
+        {
+            gAirTime[playerid] += (GetTickCount() - gLastTick[playerid]);
+        }
+        else
+        {
+            gAirTime[playerid] = 0; // Reset kalo udah di tanah
+        }
+    }
+    else
+    {
+        gAirTime[playerid] = 0;
+    }
+    
+    // DETEKSI JARAK TERLALU JAUH DALAM WAKTU SINGKAT
+    new Float:distance = floatsqroot(floatpower(x - gLastPos[playerid][0], 2) + floatpower(y - gLastPos[playerid][1], 2) + floatpower(z - gLastPos[playerid][2], 2));
+    
+    if(distance > AIRBREAK_DISTANCE && gAirTime[playerid] > AIRBREAK_TIME * 1000)
+    {
+        new name[MAX_PLAYER_NAME];
+        GetPlayerName(playerid, name, sizeof(name));
+        
+        // KIRIM KE ADMIN + KICK
+        SendClientMessageToAll(0xFF0000FF, "ANTI-CHEAT: %s ketahuan Airbreak! Teleport %.2fm", name, distance);
+        Kick(playerid);
+        return 0;
+    }
+    
+    // Simpan posisi terakhir
+    gLastPos[playerid][0] = x;
+    gLastPos[playerid][1] = y;
+    gLastPos[playerid][2] = z;
+    gLastTick[playerid] = GetTickCount();
+    
+    return 1;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GAME PERANG RIFKI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{background:#111;color:#fff;font-family:'Orbitron',sans-serif;text-align:center;padding:20px;background:linear-gradient(#000,#300)}
+h1{color:red;text-shadow:0 0 10px red;font-size:28px}
+.hp{font-size:20px;margin:10px}
+#hpKamu{color:#00ff00}
+#hpMusuh{color:#ff0000}
+.arena{border:3px solid #fff;padding:30px;margin:20px auto;max-width:400px;border-radius:15px;background:rgba(0,0,0,0.5)}
+.btn{padding:15px 25px;margin:10px;font-size:18px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;transition:0.2s}
+.btn:hover{transform:scale(1.1)}
+#serang{background:red;color:#fff;box-shadow:0 0 15px red}
+#sembuh{background:green;color:#fff;box-shadow:0 0 15px green}
+#log{margin-top:20px;text-align:left;max-height:150px;overflow-y:auto;background:#000;padding:10px;border-radius:5px}
+.logText{color:yellow}
+</style>
+</head>
+<body>
+<h1>⚔️ GAME PERANG ⚔️</h1>
+
+<div class="hp">Kamu: <span id="hpKamu">100</span> ❤️</div>
+<div class="hp">Musuh: <span id="hpMusuh">100</span> 💀</div>
+
+<div class="arena">
+ <h2 id="status">Giliran Kamu!</h2>
+ <button class="btn" id="serang" onclick="serang()">SERANG</button>
+ <button class="btn" id="sembuh" onclick="sembuh()">SEMBUH +20</button>
+</div>
+
+<div id="log"><div class="logText">Game dimulai!</div></div>
+
+<script>
+let hpKamu = 100;
+let hpMusuh = 100;
+let giliranKamu = true;
+
+function updateHP(){
+ document.getElementById('hpKamu').innerText = hpKamu;
+ document.getElementById('hpMusuh').innerText = hpMusuh;
+ if(hpKamu <= 0){gameOver("KALAH!");}
+ if(hpMusuh <= 0){gameOver("MENANG!");}
+}
+
+function tambahLog(teks){
+ document.getElementById('log').innerHTML += '<div class="logText">'+teks+'</div>';
+}
+
+function serang(){
+ if(!giliranKamu) return;
+ let damage = Math.floor(Math.random() * 20) + 10; // 10-30
+ hpMusuh -= damage;
+ tambahLog("Kamu menyerang! -"+damage+" HP");
+ giliranKamu = false;
+ updateHP();
+ setTimeout(giliranMusuh, 1000);
+}
+
+function sembuh(){
+ if(!giliranKamu) return;
+ let heal = 20;
+ hpKamu += heal;
+ if(hpKamu > 100) hpKamu = 100;
+ tambahLog("Kamu menyembuhkan! +"+heal+" HP");
+ giliranKamu = false;
+ updateHP();
+ setTimeout(giliranMusuh, 1000);
+}
+
+function giliranMusuh(){
+ document.getElementById('status').innerText = "Giliran Musuh!";
+ let aksi = Math.random();
+ if(aksi < 0.7){
+  let damage = Math.floor(Math.random() * 15) + 8; // 8-23
+  hpKamu -= damage;
+  tambahLog("Musuh menyerang! -"+damage+" HP");
+ } else {
+  let heal = 15;
+  hpMusuh += heal;
+  if(hpMusuh > 100) hpMusuh = 100;
+  tambahLog("Musuh menyembuhkan! +"+heal+" HP");
+ }
+ giliranKamu = true;
+ document.getElementById('status').innerText = "Giliran Kamu!";
+ updateHP();
+}
+
+function gameOver(hasil){
+ document.getElementById('status').innerText = hasil;
+ document.getElementById('serang').disabled = true;
+ document.getElementById('sembuh').disabled = true;
+ tambahLog("--- "+hasil+" ---");
+}
+</script>
+</body>
+</html>
