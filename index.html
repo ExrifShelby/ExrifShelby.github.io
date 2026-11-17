@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="id"><head><style>
+<html lang="id">
+<head><style>
 @font-face {
   font-family: "Optimistic";
   font-style: normal;
@@ -20,219 +21,288 @@
 :where(code, pre, kbd, samp) {
   font-family: "Optimistic Mono", ui-monospace, monospace;
 }
-</style><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>PAPUA ROLEPLAY OFFICIAL</title>
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAPUA ROLEPLAY - Kaya WA - Server 151.246.170.110:7043</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif}
-body{background:#0f0f0f;color:#fff;min-height:100vh;padding-bottom:80px}
-.header{background:#000;padding:16px 16px 12px;position:sticky;top:0;z-index:10;border-bottom:2px solid #ff8c00}
-.header h1{font-size:19px;letter-spacing:.5px}
-.header p{font-size:11px;color:#ff8c00;font-weight:700;margin-top:2px}
-.wrap{padding:16px}
-.card{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:16px;padding:16px;margin-bottom:12px}
-.badge{display:inline-block;background:#16a34a;color:#fff;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:700}
-.badge span{margin-right:4px}
-.bigip{background:#111;border:1px dashed #ff8c00;border-radius:12px;padding:12px;text-align:center;margin:12px 0;font-weight:800;font-size:15px;letter-spacing:.3px;word-break:break-all}
-.btn{display:block;width:100%;background:#ff8c00;color:#000;border:none;padding:14px;border-radius:12px;font-weight:800;font-size:15px;margin-top:10px;cursor:pointer;text-align:center;text-decoration:none}
-.btn2{background:#222;color:#fff;border:1px solid #333}
-.btnWA{display:block;width:100%;background:#25D366;color:#000;padding:14px;border-radius:12px;font-weight:800;font-size:15px;margin-top:10px;text-align:center;text-decoration:none}
-.btn:active{opacity:.85}
-h2{font-size:17px;margin-bottom:8px}
-p,li{font-size:14px;line-height:1.6;color:#d4d4d4}
-li{margin-left:18px;margin-bottom:6px}
-input,select,textarea{width:100%;background:#111;border:1px solid #333;color:#fff;padding:12px;border-radius:10px;margin-top:8px;font-size:14px}
-label{font-size:12px;color:#aaa;margin-top:10px;display:block}
-.tab{display:none}.tab.active{display:block}
-.nav{position:fixed;bottom:0;left:0;right:0;background:#000;border-top:1px solid #222;display:flex;z-index:20}
-.nav button{flex:1;background:none;border:none;color:#aaa;padding:10px 0;font-size:10px;cursor:pointer}
-.nav button.active{color:#ff8c00;font-weight:800}
-.nav button b{display:block;font-size:18px}
-.pkg{border:1px solid #333;border-radius:14px;padding:14px;margin-bottom:10px;background:#141414}
-.pkg b{font-size:16px;color:#ff8c00}
-.ok{background:#14532d;border:1px solid #22c55e;padding:12px;border-radius:10px;font-size:13px;margin-top:10px;display:none}
-.small{font-size:12px;color:#888;line-height:1.5}
-/* CHAT */
-.chat-item{display:flex;gap:12px;align-items:center;padding:14px;background:#1c1c1c;border:1px solid #2a2a2a;border-radius:16px;margin-bottom:10px;cursor:pointer}
-.chat-ava{width:48px;height:48px;border-radius:50%;background:#ff8c00;color:#000;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;flex-shrink:0}
-.chat-ava.green{background:#25D366}
-.chat-ava.purple{background:#a78bfa}
-.chat-meta{flex:1;min-width:0}
-.chat-meta b{color:#fff;font-size:15px}
-.chat-meta p{font-size:13px;color:#aaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.chat-time{font-size:11px;color:#888}
-.chat-dot{background:#25D366;color:#000;font-size:11px;font-weight:800;border-radius:999px;padding:2px 7px}
-.chat-room{display:none}
-.chat-room.active{display:block}
-.chat-head{display:flex;gap:10px;align-items:center;background:#1c1c1c;border:1px solid #2a2a2a;border-radius:16px;padding:12px;margin-bottom:10px}
-.chat-head button{background:#222;color:#fff;border:1px solid #333;border-radius:999px;padding:6px 12px;cursor:pointer}
-.chat-box{background:#0b141a;border:1px solid #222;border-radius:16px;padding:12px;min-height:340px;max-height:420px;overflow-y:auto;display:flex;flex-direction:column;gap:8px}
-.bubble{max-width:82%;padding:9px 12px;border-radius:14px;font-size:14px;line-height:1.45}
-.bubble.me{background:#005c4b;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
-.bubble.other{background:#202c33;color:#fff;align-self:flex-start;border-bottom-left-radius:4px}
-.bubble .nick{font-size:11px;font-weight:800;color:#ff8c00;display:block;margin-bottom:2px}
-.bubble.me .nick{color:#a7f3d0}
-.bubble .time{font-size:10px;color:#a8a8a8;display:block;text-align:right;margin-top:4px}
-.chat-input{display:flex;gap:8px;margin-top:10px}
-.chat-input input{margin-top:0;flex:1;background:#202c33;border:1px solid #333}
-.chat-input button{background:#25D366;color:#000;border:none;border-radius:50%;width:48px;height:48px;font-size:20px;font-weight:800;cursor:pointer;flex-shrink:0}
-.online-dot{display:inline-block;width:8px;height:8px;background:#25D366;border-radius:50%;margin-right:4px}
-</style></head><body>
-<div class="header"><h1>PAPUA ROLEPLAY OFFICIAL</h1><p>PRP • GTA SAMP • 0.3.7 • IP 151.246.170.110:7043</p></div>
-<div class="wrap">
-<!-- HOME -->
-<div id="tab-home" class="tab active">
+* { margin:0; padding:0; box-sizing:border-box; font-family: system-ui, -apple-system, sans-serif; }
+body { background:#0b141a; color:#e9edef; min-height:100vh; }
+a { color:inherit; text-decoration:none; }
+/* WA HEADER */
+.wa-top { background:#0b141a; padding:12px 16px 8px; position:sticky; top:0; z-index:20; }
+.wa-top h1 { font-size:24px; font-weight:700; display:flex; justify-content:space-between; align-items:center; }
+.wa-top h1 span { font-size:20px; }
+.search { background:#202c33; border-radius:999px; padding:10px 14px; margin:10px 0 8px; display:flex; gap:10px; align-items:center; color:#8696a0; font-size:14px; }
+.search input { flex:1; background:none; border:none; outline:none; color:#fff; font-size:14px; }
+.tabs { display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; }
+.tab { background:#202c33; color:#aebac1; border:none; padding:7px 14px; border-radius:999px; font-size:13px; white-space:nowrap; cursor:pointer; }
+.tab.active { background:#00a884; color:#000; font-weight:700; }
+/* CHAT LIST - MIRIP WA */
+.chatlist { padding:4px 0 100px; }
+.chat-item { display:flex; gap:12px; padding:12px 16px; cursor:pointer; border-bottom:1px solid #1f2c34; align-items:center; }
+.chat-item:active { background:#202c33; }
+.ava { width:52px; height:52px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:900; color:#000; }
+.ava-papua { background:#ff8c00; }
+.ava-green { background:#00a884; }
+.ava-blue { background:#53bdeb; }
+.ava-purple { background:#a855f7; }
+.chat-main { flex:1; min-width:0; }
+.chat-main b { font-size:16px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.chat-main p { font-size:13px; color:#8696a0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:2px; }
+.chat-meta { text-align:right; flex-shrink:0; }
+.chat-meta span { font-size:12px; color:#00a884; display:block; }
+.badge-unread { background:#00a884; color:#000; font-size:11px; font-weight:800; padding:2px 7px; border-radius:999px; display:inline-block; margin-top:4px; }
+.admin-tag { background:#ff8c00; color:#000; font-size:10px; padding:2px 6px; border-radius:999px; font-weight:800; margin-left:6px; }
+/* CARDS */
+.card { background:#111b21; border-radius:14px; padding:14px; margin:12px 16px; border:1px solid #222d34; }
+.card h2 { font-size:17px; margin-bottom:6px; }
+.card p { font-size:13px; color:#aebac1; line-height:1.5; }
+.ip-box { background:#000; border:1.5px dashed #ff8c00; border-radius:12px; padding:12px; text-align:center; font-weight:800; margin:10px 0; }
+.btn { display:block; width:100%; border:none; border-radius:12px; padding:13px; font-weight:800; cursor:pointer; text-align:center; margin-top:10px; font-size:14px; }
+.btn-orange { background:#ff8c00; color:#000; }
+.btn-green { background:#00a884; color:#000; }
+.btn-dark { background:#202c33; color:#fff; }
+.btn-red { background:#ea0038; color:#fff; }
+.input { width:100%; background:#202c33; border:none; color:#fff; padding:13px; border-radius:12px; margin-top:10px; font-size:14px; outline:none; }
+/* CHAT ROOM - WA STYLE */
+#chatRoom { position:fixed; inset:0; background:#0b141a; z-index:50; display:none; flex-direction:column; }
+.room-head { background:#202c33; padding:10px 12px; display:flex; gap:10px; align-items:center; }
+.room-head .ava { width:40px; height:40px; font-size:16px; }
+.room-body { flex:1; overflow-y:auto; padding:12px 10px 12px; background:#0b141a; background-image:radial-gradient(#1f2c34 1px, transparent 1px); background-size:20px 20px; }
+.msg { max-width:82%; padding:8px 10px; border-radius:12px; margin-bottom:10px; font-size:14px; line-height:1.4; color:#111; position:relative; box-shadow:0 1px 2px rgba(0,0,0,.3); }
+.msg.mine { background:#dcf8c6; margin-left:auto; border-bottom-right-radius:2px; }
+.msg.other { background:#fff; margin-right:auto; border-bottom-left-radius:2px; }
+.msg .m-name { font-size:11px; font-weight:800; color:#ff8c00; }
+.msg .m-time { font-size:10px; color:#888; text-align:right; margin-top:4px; }
+.msg .m-actions { display:flex; gap:6px; margin-top:6px; }
+.mini-btn { font-size:11px; padding:5px 8px; border-radius:999px; border:none; cursor:pointer; font-weight:700; }
+.mini-red { background:#ea0038; color:#fff; }
+.mini-dark { background:#222; color:#fff; }
+.link-warn { background:#fff3cd; color:#000; font-size:11px; padding:6px 8px; border-radius:8px; margin-top:6px; font-weight:700; }
+.room-input { background:#202c33; padding:10px; display:flex; gap:8px; align-items:center; }
+.room-input input { flex:1; background:#2a3942; border:none; color:#fff; padding:12px 14px; border-radius:999px; outline:none; font-size:14px; }
+.send-btn { width:48px; height:48px; border-radius:50%; background:#00a884; border:none; font-size:20px; cursor:pointer; flex-shrink:0; }
+/* LOGIN */
+#loginScreen { position:fixed; inset:0; background:#0b141a; z-index:100; overflow-y:auto; padding:20px 16px 40px; }
+.login-logo { width:80px; height:80px; border-radius:50%; background:#ff8c00; color:#000; display:flex; align-items:center; justify-content:center; font-size:36px; font-weight:900; margin:20px auto 12px; }
+.otp-box { display:flex; gap:8px; margin-top:10px; justify-content:center; }
+.otp-box input { width:44px; height:52px; text-align:center; font-size:22px; font-weight:900; background:#202c33; border:none; color:#fff; border-radius:10px; }
+.otp-info { background:#fff3cd; color:#000; padding:12px; border-radius:10px; margin-top:12px; font-size:13px; line-height:1.5; font-weight:600; display:none; }
+.banned-box { background:#ea0038; color:#fff; padding:14px; border-radius:12px; margin-top:12px; display:none; font-weight:700; text-align:center; }
+.toast { position:fixed; left:50%; bottom:100px; transform:translateX(-50%); background:#fff; color:#000; padding:10px 16px; border-radius:999px; font-weight:800; font-size:13px; display:none; z-index:90; max-width:90%; text-align:center; }
+.bottom { position:fixed; left:0; right:0; bottom:0; background:#0b141a; border-top:1px solid #222d34; display:flex; z-index:30; }
+.bottom button { flex:1; background:none; border:none; color:#8696a0; padding:10px 0 8px; font-size:11px; cursor:pointer; }
+.bottom button.active { color:#00a884; }
+.bottom button span { display:block; font-size:20px; }
+.fab { position:fixed; right:16px; bottom:84px; width:56px; height:56px; border-radius:50%; background:#00a884; border:none; font-size:24px; cursor:pointer; z-index:25; }
+.page { display:none; padding-bottom:100px; }
+.page.active { display:block; }
+.ban-item { display:flex; gap:10px; align-items:center; background:#202c33; padding:10px; border-radius:10px; margin-bottom:8px; font-size:13px; }
+.switch { display:flex; justify-content:space-between; align-items:center; background:#202c33; padding:12px; border-radius:10px; margin-top:10px; font-size:13px; font-weight:700; }
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen">
+  <div class="login-logo">P</div>
+  <h2 style="text-align:center; font-size:22px;">PAPUA ROLEPLAY</h2>
+  <p style="text-align:center; color:#8696a0; font-size:13px;">Server: 151.246.170.110:7043 &bull; Admin: Exrif<br>Kaya WA - Wajib No HP + Kode OTP</p>
   <div class="card">
-    <span class="badge"><span>●</span> ONLINE</span>
-    <h2 style="margin-top:10px">PAPUA ROLEPLAY</h2>
-    <p>Server Roleplay Indonesia. Main RP yang bener, komunitas solid, admin aktif.</p>
-    <p style="margin-top:8px"><b style="color:#fff">128 / 500 Player Online</b></p>
-    <div class="bigip" id="ipText">151.246.170.110:7043</div>
-    <button class="btn" onclick="copyIP()">SALIN IP SERVER</button>
-    <a class="btnWA" href="https://wa.me/6281953612889" target="_blank">💬 CHAT ADMIN VIA WA<br><span style="font-size:12px;font-weight:400">0819-5361-2889</span></a>
-    <button class="btn btn2" onclick="showTab('chat')">💬 BUKA GRUP PAPUA - CHAT ONLINE KAYA GRUP WA</button>
-    <button class="btn btn2" onclick="showTab('join')">CARA JOIN / MAIN</button>
-  </div>
-  <div class="card"><h2>📢 Pengumuman</h2>
-    <p><b style="color:#fff">• Event Weekend PRP</b><br>Event balap + bagi-bagi hadiah di kota. Cek di game.</p>
-    <p style="margin-top:8px"><b style="color:#fff">• Update Server</b><br>System baru, bug fix, dan penambahan job.</p>
-    <p style="margin-top:8px"><b style="color:#fff">• Maintenance</b><br>Kalo server restart, tunggu 5 menit lalu join lagi.</p>
-  </div>
-  <div class="card"><h2>ℹ️ Info Server</h2>
-    <p>IP: 151.246.170.110:7043<br>Mode: Roleplay<br>Version: 0.3.7<br>Map: San Andreas<br>Admin WA: 0819-5361-2889<br>Grup: Di app ini - Online kaya Grup WA, tanpa WA lagi!</p>
-    <p class="small" style="margin-top:8px">Tidak pakai Discord. Grup WA diganti Grup PAPUA di app ini. Semua player bisa saling chat online.</p>
+    <span style="background:#ff8c00; color:#000; padding:3px 8px; border-radius:999px; font-size:11px; font-weight:800;">LOGIN - NO HP + OTP</span>
+    <h2 style="margin-top:10px;">Masuk Pake No HP</h2>
+    <p>Isi Nama RP + No HP. Kode OTP dikirim via WA (gratis).</p>
+    <input class="input" id="loginNama" placeholder="Nama RP lo, contoh: Exrif" />
+    <input class="input" id="loginPhone" placeholder="No HP, contoh: 081953612889" inputmode="numeric" />
+    <button class="btn btn-orange" onclick="kirimOTP()">📲 KIRIM KODE OTP VIA WA</button>
+    <div id="otpInfo" class="otp-info"></div>
+    <div id="bannedBox" class="banned-box">⛔ No HP lo di-BAN oleh Admin Exrif di APK PAPUA ROLEPLAY. Hubungi Admin 0819-5361-2889 untuk buka BAN.</div>
+    <p style="margin-top:12px; font-size:12px; color:#aaa;">Kode OTP 6 Digit (cek WA lo)</p>
+    <div class="otp-box">
+      <input maxlength="1" id="otp0" inputmode="numeric" oninput="pindahOTP(this,1)" />
+      <input maxlength="1" id="otp1" inputmode="numeric" oninput="pindahOTP(this,2)" />
+      <input maxlength="1" id="otp2" inputmode="numeric" oninput="pindahOTP(this,3)" />
+      <input maxlength="1" id="otp3" inputmode="numeric" oninput="pindahOTP(this,4)" />
+      <input maxlength="1" id="otp4" inputmode="numeric" oninput="pindahOTP(this,5)" />
+      <input maxlength="1" id="otp5" inputmode="numeric" />
+    </div>
+    <button class="btn btn-green" onclick="verifOTP()">✅ VERIFIKASI &amp; MASUK</button>
+    <button class="btn btn-dark" onclick="kirimUlang()">🔄 KIRIM ULANG KODE</button>
+    <p style="font-size:11px; color:#8696a0; text-align:center; margin-top:8px;">Kode berlaku 5 menit. Admin Exrif: 0819-5361-2889 otomatis jadi ADMIN.</p>
+    <p id="loginDemo" style="font-size:12px; color:#ffcc00; text-align:center; margin-top:6px;"></p>
   </div>
 </div>
-<!-- JOIN -->
-<div id="tab-join" class="tab">
-  <div class="card"><h2>📱 Cara Join - Android</h2>
-    <p>1. Download GTA SA di HP lo<br>2. Download SAMP Launcher / SA-MP Mobile<br>3. Buka launcher, pilih Add Server<br>4. Masukin IP di bawah ini<br>5. Login / Register, langsung main</p>
-    <div class="bigip">151.246.170.110:7043</div>
-    <button class="btn" onclick="copyIP()">SALIN IP</button>
-    <a class="btnWA" href="https://wa.me/6281953612889" target="_blank">💬 TANYA ADMIN VIA WA</a>
+
+<!-- WA LIKE - MAIN -->
+<div id="mainApp">
+  <div class="wa-top" id="waTop">
+    <h1>PAPUA ROLEPLAY <span>📷 ⋮</span></h1>
+    <div class="search">🔍 <input id="searchInput" placeholder="Cari chat / player PAPUA..." oninput="filterChats()" /></div>
+    <div class="tabs">
+      <button class="tab active" onclick="setTab(this,'all')">Semua</button>
+      <button class="tab" onclick="setTab(this,'unread')">Belum dibaca</button>
+      <button class="tab" onclick="setTab(this,'fav')">Favorit</button>
+      <button class="tab" onclick="setTab(this,'grup')">Grup</button>
+      <button class="tab" onclick="showPage('admin')">🛡️ Admin</button>
+    </div>
   </div>
-  <div class="card"><h2>💻 Cara Join - PC</h2>
-    <p>1. Install GTA San Andreas<br>2. Install SA-MP Client 0.3.7<br>3. Buka SA-MP, klik Add Server<br>4. Masukin IP 151.246.170.110:7043<br>5. Double klik server PAPUA ROLEPLAY</p>
+
+  <!-- PAGE CHAT LIST -->
+  <div id="page-chatlist" class="page active">
+    <div class="chatlist" id="chatList">
+      <div class="chat-item" data-name="PAPUA ROLEPLAY | ONE TOP" onclick="openRoom('PAPUA ROLEPLAY | ONE TOP','P','#ff8c00','Grup • Admin: Exrif • Server 151.246.170.110:7043')">
+        <div class="ava ava-papua">PR</div>
+        <div class="chat-main"><b>PAPUA ROLEPLAY | ONE TOP <span class="admin-tag">GRUP</span></b><p>~ Exrif: Gas RP malam ini di kota! 🔥</p></div>
+        <div class="chat-meta"><span>09.40</span><span class="badge-unread">3</span></div>
+      </div>
+      <div class="chat-item" data-name="FNG P-RP - PAPUA ROLEPLAY" onclick="openRoom('FNG P-RP - PAPUA ROLEPLAY','F','#53bdeb','Grup • Server PAPUA')">
+        <div class="ava ava-blue">F</div>
+        <div class="chat-main"><b>FNG P-RP - PAPUA ROLEPLAY</b><p>Pengumuman 📣 ~ abcde bereaksi...</p></div>
+        <div class="chat-meta"><span>09.36</span></div>
+      </div>
+      <div class="chat-item" data-name="TOP-UP & DONATE" onclick="openRoom('TOP-UP & DONATE','💰','#00a884','Admin Exrif • Donate PAPUA')">
+        <div class="ava ava-green">💰</div>
+        <div class="chat-main"><b>💰 | TOP-UP &amp; DONATE <span class="admin-tag">ADMIN</span></b><p>Anda sekarang admin • Bronze 25K, Silver 50K...</p></div>
+        <div class="chat-meta"><span>07.26</span></div>
+      </div>
+      <div class="chat-item" data-name="Exrif Shelby" onclick="openRoom('Exrif Shelby','E','#a855f7','Admin PAPUA • Online')">
+        <div class="ava ava-purple">E</div>
+        <div class="chat-main"><b>Exrif Shelby 👑</b><p>Pengumuman 📣 Server PAPUA update...</p></div>
+        <div class="chat-meta"><span>06.47</span></div>
+      </div>
+      <div class="chat-item" data-name="Pengumuman PAPUA" onclick="openRoom('Pengumuman PAPUA','📢','#ff8c00','Broadcast • Hanya Admin')">
+        <div class="ava ava-papua">📢</div>
+        <div class="chat-main"><b>Pengumuman PAPUA</b><p>Event Weekend PRP - Balap + hadiah di kota!</p></div>
+        <div class="chat-meta"><span>06.39</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>ℹ️ Server PAPUA - Nyambung Semua</h2>
+      <p>IP: 151.246.170.110:7043<br>Mode: Roleplay • Version: 0.3.7<br>Admin: Exrif - 0819-5361-2889<br>Semua chat di atas nyambung ke server PAPUA ini. Bukan WA asli, tapi tampilan &amp; cara pakai na persis kaya WA di screenshot lo.</p>
+      <div class="ip-box">151.246.170.110:7043</div>
+      <button class="btn btn-orange" onclick="copyIP()">SALIN IP SERVER PAPUA</button>
+    </div>
+    <p style="text-align:center; font-size:11px; color:#8696a0; padding:10px;">🔒 Pesan pribadi Anda terenkripsi secara end-to-end di Grup PAPUA</p>
   </div>
-  <div class="card"><h2>🆘 Gagal Join?</h2><p>Pastiin internet stabil, IP bener, dan GTA lo versi original / bersih dari mod cheat. Kalo tetep gagal, chat di menu Chat atau WA Admin.</p></div>
+
+  <!-- PAGE HOME / JOIN / DONATE / BANTUAN / ADMIN -->
+  <div id="page-home" class="page">
+    <div class="card"><h2>🏠 Home - PAPUA ROLEPLAY</h2><p>Server Roleplay Indonesia. IP asli server lo, admin Exrif.</p><div class="ip-box">151.246.170.110:7043</div><button class="btn btn-orange" onclick="copyIP()">SALIN IP</button><button class="btn btn-dark" onclick="showPage('chatlist')">💬 BUKA CHAT KAYA WA</button></div>
+    <div class="card"><h2>📢 Pengumuman - Admin Exrif</h2><p>Event Weekend PRP, Update Server, Maintenance - tunggu 5 menit lalu join lagi.</p></div>
+  </div>
+  <div id="page-join" class="page">
+    <div class="card"><h2>🎮 Cara Join Server PAPUA</h2><p>1. Install GTA SA + SAMP 0.3.7<br>2. Salin IP: <b>151.246.170.110:7043</b><br>3. SAMP &gt; Add Server &gt; Paste &gt; Join<br>4. Ikutin rules Admin Exrif.</p><button class="btn btn-orange" onclick="copyIP()">SALIN IP SERVER</button></div>
+  </div>
+  <div id="page-donate" class="page">
+    <div class="card"><h2>👑 Donate PAPUA - Admin Exrif</h2><p>Semua donate masuk ke server PAPUA ini.</p></div>
+    <div class="card"><h2>🥉 Bronze - 25K</h2><button class="btn btn-orange" onclick="donate('Bronze','25K')">PILIH BRONZE - WA ADMIN</button></div>
+    <div class="card"><h2>🥈 Silver - 50K</h2><button class="btn btn-orange" onclick="donate('Silver','50K')">PILIH SILVER - WA ADMIN</button></div>
+    <div class="card"><h2>🥇 Gold - 100K</h2><button class="btn btn-orange" onclick="donate('Gold','100K')">PILIH GOLD - WA ADMIN</button></div>
+    <div class="card"><h2>💎 Diamond - 200K</h2><button class="btn btn-orange" onclick="donate('Diamond','200K')">PILIH DIAMOND - WA ADMIN</button></div>
+  </div>
+  <div id="page-bantuan" class="page">
+    <div class="card"><h2>❓ Bantuan - PAPUA</h2><p><b>Login OTP:</b> Isi Nama + No HP, KIRIM KODE via WA, masukin 6 digit.<br><b>Grup:</b> Chat kaya WA, di halaman Chat.<br><b>Ban:</b> Admin Exrif bisa BAN No HP yang share link.<br><b>Server:</b> 151.246.170.110:7043</p><a class="btn btn-green" href="https://wa.me/6281953612889?text=Halo%20Admin%20Exrif%20PAPUA" target="_blank">CHAT ADMIN EXRIF VIA WA</a></div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div id="page-admin" class="page">
+    <div class="card">
+      <h2>🛡️ Panel Admin - Exrif</h2>
+      <p id="adminCheck">Hanya Admin Exrif (0819-5361-2889) yang bisa buka ini.</p>
+      <div id="adminContent" style="display:none;">
+        <div class="switch"><span>🚫 Auto-BAN yang Share Link</span><span><input type="checkbox" id="autoBanToggle" onchange="toggleAutoBan()" checked /> ON</span></div>
+        <p style="font-size:12px; margin-top:8px;">Kalo ON: Siapapun yang kirim link (http, .com, discord.gg, t.me) langsung ke-BAN No HP na otomatis, chat na dihapus.</p>
+        <h2 style="margin-top:14px;">BAN No HP Manual</h2>
+        <input class="input" id="banPhoneInput" placeholder="No HP yang mau di-BAN, contoh: 08123456789" inputmode="numeric" />
+        <input class="input" id="banAlasanInput" placeholder="Alasan BAN, contoh: Share link" />
+        <button class="btn btn-red" onclick="banNumberManual()">⛔ BAN NO HP INI</button>
+        <h2 style="margin-top:14px;">Daftar No HP yang di-BAN</h2>
+        <div id="bannedList"></div>
+        <button class="btn btn-dark" onclick="refreshBanned()">🔄 REFRESH DAFTAR BAN</button>
+      </div>
+    </div>
+    <div class="card">
+      <h2>👤 Profil Saya</h2>
+      <p id="myProfilText">-</p>
+      <button class="btn btn-dark" onclick="logout()">Keluar - Login Lagi Pake No HP</button>
+    </div>
+  </div>
+
 </div>
-<!-- CHAT -->
-<div id="tab-chat" class="tab">
-  <div class="card"><h2>💬 Chat PAPUA - Tanpa WA Lagi!</h2><p>Grup PAPUA di app ini udah <b style="color:#25D366">ONLINE</b>. Semua player nu buka APK bisa saling chat, kaya Grup WA. Ga perlu WA lagi.</p></div>
-  <div id="chatList">
-    <div class="chat-item" onclick="openGrup()">
-      <div class="chat-ava">👥</div>
-      <div class="chat-meta"><b>Grup PAPUA ROLEPLAY - ONLINE 🌐</b><p id="last-grup">Semua player bisa chat di sini - kaya Grup WA!</p></div>
-      <div><span class="chat-time" style="color:#25D366">● LIVE</span><br><span class="chat-dot">GRUP</span></div>
+
+<!-- CHAT ROOM WA -->
+<div id="chatRoom">
+  <div class="room-head">
+    <button onclick="closeRoom()" style="background:none; border:none; color:#fff; font-size:22px; cursor:pointer;">←</button>
+    <div class="ava" id="roomAva">P</div>
+    <div style="flex:1;">
+      <b id="roomName">Grup PAPUA</b>
+      <p id="roomSub" style="font-size:12px; color:#8696a0;">Online • Server PAPUA</p>
     </div>
-    <div class="chat-item" onclick="openChat('admin')">
-      <div class="chat-ava green">👑</div>
-      <div class="chat-meta"><b>Admin PRP - Chat Pribadi</b><p id="last-admin">Halo, ada yang bisa dibantu? Kirim nickname lo ya...</p></div>
-      <div><span class="chat-time">Online</span><br><span class="chat-dot">1</span></div>
-    </div>
-    <div class="chat-item" onclick="openChat('donate')">
-      <div class="chat-ava purple">💎</div>
-      <div class="chat-meta"><b>Donate / Order VIP</b><p id="last-donate">Kirim bukti TF + nickname di sini ya</p></div>
-      <div><span class="chat-time">09:45</span></div>
-    </div>
+    <button onclick="adminRoomAction()" style="background:none; border:none; color:#fff; font-size:20px; cursor:pointer;">⋮</button>
   </div>
-  <!-- ROOM PRIBADI -->
-  <div id="chatRoom" class="chat-room">
-    <div class="chat-head">
-      <button onclick="backToList()">←</button>
-      <div class="chat-ava green" id="roomAva">👑</div>
-      <div style="flex:1"><b id="roomName" style="color:#fff">Admin PRP</b><p style="font-size:12px;color:#25D366" id="roomStatus">Online • Balas cepet</p></div>
-      <a href="https://wa.me/6281953612889" target="_blank" style="background:#25D366;color:#000;padding:8px 12px;border-radius:999px;font-size:12px;font-weight:800;text-decoration:none">WA</a>
-    </div>
-    <div class="chat-box" id="chatBox"></div>
-    <div class="chat-input">
-      <input id="chatInput" placeholder="Ketik pesan... contoh: Min, mau donate GOLD" onkeydown="if(event.key==='Enter') sendChat()">
-      <button onclick="sendChat()">➤</button>
-    </div>
-    <p class="small" style="margin-top:8px">Chat pribadi ke-save di HP lo. Kalo mau langsung ke WA Admin, pencet tombol WA ijo. WA: 0819-5361-2889</p>
-  </div>
-  <!-- ROOM GRUP ONLINE -->
-  <div id="grupRoom" class="chat-room">
-    <div class="chat-head">
-      <button onclick="backToList()">←</button>
-      <div class="chat-ava">👥</div>
-      <div style="flex:1"><b style="color:#fff">Grup PAPUA ROLEPLAY</b><p style="font-size:12px;color:#25D366"><span class="online-dot"></span><span id="grupStatus">Online • Semua player bisa liat</span></p></div>
-      <button onclick="refreshGrup()" style="background:#25D366;color:#000;font-weight:800">↻</button>
-    </div>
-    <div class="card" style="margin-bottom:10px">
-      <label style="margin-top:0">Nickname Lo di Grup (wajib isi dulu, biar player lain tau lo saha)</label>
-      <input id="grupNick" placeholder="Contoh: Andi_Papua" onchange="saveNick()">
-      <p class="small" id="grupInfo">Isi nickname, terus chat di bawah. Chat lo bakal langsung ke-liat sama semua player nu buka APK PAPUA.</p>
-    </div>
-    <div class="chat-box" id="grupBox"></div>
-    <div class="chat-input">
-      <input id="grupInput" placeholder="Ketik chat grup... contoh: Gas mabar gaes!" onkeydown="if(event.key==='Enter') sendGrup()">
-      <button onclick="sendGrup()">➤</button>
-    </div>
-    <p class="small" style="margin-top:8px">Grup ini ONLINE, bukan cuma di HP lo. Player lain nu buka APK PAPUA bakal liat chat lo, kaya Grup WA. Dilarang spam, toxic, share link aneh. IP Server: 151.246.170.110:7043</p>
+  <div class="room-body" id="chatBox"></div>
+  <div class="room-input">
+    <span style="font-size:20px;">😊</span>
+    <span style="font-size:20px;">📎</span>
+    <input id="chatInput" placeholder="Ketik pesan..." onkeydown="if(event.key==='Enter') sendChat()" />
+    <button class="send-btn" onclick="sendChat()">➤</button>
   </div>
 </div>
-<!-- DONATE -->
-<div id="tab-donate" class="tab">
-  <div class="card"><h2>👑 Donate / VIP</h2><p>Pilih paket, isi nickname, pilih pembayaran. Bisa konfirmasi lewat Chat di app atau WA Admin.</p></div>
-  <div class="pkg"><b>BRONZE - 25K</b><p>• Skin VIP<br>• 1 Kendaraan VIP<br>• Slot antrian prioritas</p><button class="btn" onclick="pilihPaket('BRONZE - 25K')">PILIH BRONZE</button></div>
-  <div class="pkg"><b>SILVER - 50K</b><p>• Semua Bronze<br>• 2 Kendaraan VIP<br>• Rumah kecil</p><button class="btn" onclick="pilihPaket('SILVER - 50K')">PILIH SILVER</button></div>
-  <div class="pkg"><b>GOLD - 100K</b><p>• Semua Silver<br>• 3 Kendaraan VIP<br>• Rumah + Bisnis</p><button class="btn" onclick="pilihPaket('GOLD - 100K')">PILIH GOLD</button></div>
-  <div class="pkg"><b>DIAMOND - 200K</b><p>• Semua Gold<br>• Custom plate<br>• Prioritas admin</p><button class="btn" onclick="pilihPaket('DIAMOND - 200K')">PILIH DIAMOND</button></div>
-  <div class="card"><h2>Form Order</h2>
-    <label>Paket Dipilih</label><input id="paket" value="Pilih paket di atas dulu" readonly>
-    <label>Nickname UCP / IG</label><input id="nick" placeholder="Contoh: Andi_Papua">
-    <label>Pembayaran</label><select id="bayar"><option>QRIS</option><option>DANA</option><option>OVO</option><option>Transfer Bank</option></select>
-    <button class="btn" onclick="kirimOrder()">KIRIM ORDER</button>
-    <div id="okOrder" class="ok"></div>
-    <a class="btnWA" href="https://wa.me/6281953612889" target="_blank">💬 KONFIRMASI KE WA ADMIN</a>
-    <p class="small">Simpen nomor tiketnya. Bisa konfirmasi via Chat di app atau WA 0819-5361-2889.</p>
-  </div>
+
+<button class="fab" onclick="showPage('chatlist')">💬</button>
+
+<div id="toast" class="toast"></div>
+
+<div class="bottom">
+  <button id="nav-chatlist" class="active" onclick="showPage('chatlist')"><span>💬</span>Chat</button>
+  <button id="nav-home" onclick="showPage('home')"><span>🏠</span>Home</button>
+  <button id="nav-join" onclick="showPage('join')"><span>🎮</span>Join</button>
+  <button id="nav-donate" onclick="showPage('donate')"><span>👑</span>Donate</button>
+  <button id="nav-bantuan" onclick="showPage('bantuan')"><span>📋</span>Bantuan</button>
+  <button id="nav-admin" onclick="showPage('admin')"><span>🛡️</span>Admin</button>
 </div>
-<!-- BANTUAN -->
-<div id="tab-bantuan" class="tab">
-  <div class="card"><h2>📜 Rules PRP</h2><ul>
-    <li>Dilarang cheat / mod merugikan</li><li>Dilarang DM / RDM / VDM</li><li>RP yang bener, jangan powergaming</li><li>Hargai player lain & admin</li><li>IC dan OOC dibedakan</li></ul></div>
-  <div class="card"><h2>⌨️ Command Penting</h2><p>/help - Bantuan<br>/gps - GPS<br>/report - Lapor player<br>/me - Aksi RP<br>/do - Narasi RP<br>/pm - Chat pribadi IG</p></div>
-  <div class="card"><h2>🎫 Bikin Tiket Bantuan</h2>
-    <label>Nickname</label><input id="tNick" placeholder="Nickname lo">
-    <label>Kategori</label><select id="tKat"><option>Report Player</option><option>Bug / Error</option><option>Donate Bermasalah</option><option>Tanya Admin</option></select>
-    <label>Cerita / Bukti</label><textarea id="tDesc" rows="4" placeholder="Ceritain kronologinya, jam, dan nama player kalo ada"></textarea>
-    <button class="btn" onclick="kirimTiket()">KIRIM TIKET</button>
-    <div id="okTiket" class="ok"></div>
-    <a class="btnWA" href="https://wa.me/6281953612889" target="_blank">💬 Atau Chat Admin WA - 0819-5361-2889</a>
-  </div>
-</div>
-</div>
-<div class="nav">
-  <button class="active" onclick="showTab('home')"> <b>🏠</b> Home</button>
-  <button onclick="showTab('join')"> <b>🎮</b> Join</button>
-  <button onclick="showTab('chat')"> <b>💬</b> Chat</button>
-  <button onclick="showTab('donate')"> <b>👑</b> Donate</button>
-  <button onclick="showTab('bantuan')"> <b>🎫</b> Bantuan</button>
-</div>
+
 <script>
-var currentChat='admin';
-var GRUP_TOPIC='papua-roleplay-grup-7043';
-var GRUP_URL='https://ntfy.sh/'+GRUP_TOPIC;
-var seenGrupIds={};
-var grupTimer=null;
-var defaultMsgs={
-  admin:[{from:'other',text:'Halo! Selamat datang di PAPUA ROLEPLAY 👋 Kirim nickname + keperluan lo ya, admin bantu. IP server: 151.246.170.110:7043'}],
-  donate:[{from:'other',text:'Halo! Mau donate paket apa? Kirim bukti TF + nickname di sini ya. Bisa juga WA Admin 0819-5361-2889'}]
-};
-function showTab(n){document.querySelectorAll('.tab').forEach(e=>e.classList.remove('active'));document.getElementById('tab-'+n).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));var idx={home:0,join:1,chat:2,donate:3,bantuan:4}[n];document.querySelectorAll('.nav button')[idx].classList.add('active');window.scrollTo(0,0)}
-function copyIP(){var t=document.getElementById('ipText').innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(()=>alert('IP tersalin: '+t))}else{prompt('Salin IP ini:',t)}}
-function pilihPaket(p){document.getElementById('paket').value=p;showTab('donate');window.scrollTo(0,0)}
-function kirimOrder(){var n=document.getElementById('nick').value||'Tanpa Nama';var p=document.getElementById('paket').value;var b=document.getElementById('bayar').value;var tiket='PRP-'+Math.floor(1000+Math.random()*9000);var el=document.getElementById('okOrder');el.style.display='block';el.innerHTML='✅ Order terkirim!<br>Nomor Tiket: <b>'+tiket+'</b><br>Paket: '+p+'<br>Nick: '+n+'<br>Bayar via: '+b+'<br>Simpen nomor ini, konfirmasi bisa via Chat di app atau WA 0819-5361-2889.'}
-function kirimTiket(){var n=document.getElementById('tNick').value||'Tanpa Nama';var k=document.getElementById('tKat').value;var tiket='TKT-'+Math.floor(1000+Math.random()*9000);var el=document.getElementById('okTiket');el.style.display='block';el.innerHTML='✅ Tiket terkirim!<br>Nomor Tiket: <b>'+tiket+'</b><br>Dari: '+n+'<br>Kategori: '+k+'<br>Tunggu balasan admin di Chat / WA.'}
-// PRIVATE CHAT
-function getMsgs(id){try{var s=localStorage.getItem('prp_chat_'+id);if(s) return JSON.parse(s)}catch(e){} return JSON.parse(JSON.stringify(defaultMsgs[id]||[]))}
-function saveMsgs(id,msgs){try{localStorage.setItem('prp_chat_'+id, JSON.stringify(msgs))}catch(e){}}
-function renderChat(){var msgs=getMsgs(currentChat);var box=document.getElementById('chatBox');box.innerHTML='';msgs.forEach(function(m){var d=document.createElement('div');d.className='bubble '+(m.from==='me'?'me':'other');var now=new Date();var time=now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');d.innerHTML=m.text+'<span class="time">'+time+(m.from==='me'?' ✓✓':'')+'</span>';box.appendChild(d)});box.scrollTop=box.scrollHeight}
-function openChat(id){currentChat=id;stopGrupPoll();var names={admin:['Admin PRP','👑','Online • Balas cepet'],donate:['Donate / Order VIP','💎','Online • Admin Donate']};var inf=names[id];document.getElementById('roomName').innerText=inf[0];document.getElementById('roomAva').innerText=inf[1];document.getElementById('roomStatus').innerText=inf[2];document.getElementById('chatList').style.display='none';document.getElementById('chatRoom').classList.add('active');document.getElementById('grupRoom').classList.remove('active');renderChat()}
-function backToList(){stopGrupPoll();document.getElementById('chatList').style.display='block';document.getElementById('chatRoom').classList.remove('active');document.getElementById('grupRoom').classList.remove('active')}
-function sendChat(){var inp=document.getElementById('chatInput');var txt=inp.value.trim();if(!txt) return;var msgs=getMsgs(currentChat);msgs.push({from:'me',text:txt});saveMsgs(currentChat,msgs);renderChat();inp.value='';document.getElementById('last-'+currentChat).innerText=txt;setTimeout(function(){var reply='Siap, admin cek dulu ya. Kirim nickname + bukti / kronologi lengkapnya biar cepet diproses. IP server: 151.246.170.110:7043';var low=txt.toLowerCase();if(low.includes('donate')||low.includes('vip')||low.includes('gold')||low.includes('diamond')||low.includes('bronze')||low.includes('silver')) reply='Siap! Mau paket apa? Bronze 25K, Silver 50K, Gold 100K, Diamond 200K. Kirim nickname + bukti TF ke sini / WA 0819-5361-2889 ya.';else if(low.includes('ip')||low.includes('join')||low.includes('gabung')||low.includes('masuk')||low.includes('gagal')) reply='IP server: 151.246.170.110:7043. Copy IP di Home, masukin ke SAMP Launcher, pilih server PAPUA ROLEPLAY. Kalo gagal join, cek internet + GTA lo bersih dari cheat ya.';var m2=getMsgs(currentChat);m2.push({from:'other',text:reply});saveMsgs(currentChat,m2);renderChat();document.getElementById('last-'+currentChat).innerText=reply;},1500)}
-// GRUP ONLINE - PAKAI NTFY GRATIS, SEMUA HP BISA LIAT
-function saveNick(){var v=document.getElementById('grupNick').value.trim();try{localStorage.setItem('prp_nick',v)}catch(e){} if(v) document.getElementById('grupInfo').innerText='Siap, lo chat sebagai '+v+'. Chat lo langsung ke-liat semua player.'}
-function loadNick(){try{var v=localStorage.getItem('prp_nick')||'';document.getElementById('grupNick').value=v;return v}catch(e){return ''}}
-function openGrup(){stopGrupPoll();document.getElementById('chatList').style.display='
+var SERVER_IP = '151.246.170.110:7043';
+var SERVER_TOPIC = 'papua-roleplay-prp-151246170110';
+var BANNED_TOPIC = 'papua-banned-151246170110';
+var myName = localStorage.getItem('papua_nama') || '';
+var myPhone = localStorage.getItem('papua_phone') || '';
+var myAvatar = localStorage.getItem('papua_avatar') || '😎';
+var otpCode = '';
+var currentRoom = 'PAPUA ROLEPLAY | ONE TOP';
+var autoBanLink = localStorage.getItem('papua_autoban') !== '0';
+
+function isAdminName(n) {
+  if (!n) return false;
+  var low = n.toLowerCase().trim();
+  return low === 'exrif' || low === 'exrifshelby' || low === 'admin' || low === 'papua' || low === 'exrif shelby';
+}
+function isAdminPhone(p) {
+  if (!p) return false;
+  var clean = p.replace(/[^0-9]/g, '');
+  return clean === '081953612889' || clean === '6281953612889' || clean === '81953612889';
+}
+function isAdmin() { return isAdminName(myName) || isAdminPhone(myPhone); }
+function normalizePhone(p) {
+  var c = (p || '').replace(/[^0-9]/g, '');
+  if (c.startsWith('0')) { c = '62' + c.slice(1); }
+  if (!c.startsWith('62')) { c = '62' + c; }
+  return c;
+}
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(function(){ t.style.display = 'none'; }, 2600);
+}
+function showPage(name) {
+  var pages = document.querySelectorAll('.page');
+  for (var i = 0; i < pages.length; i++) { pages[i].classList.remove('active'); }
+  var target = document.getElementById('page-' + name);
+  if (target) { target.classList.add('active'); }
+  var navs = document.querySelectorAll('.bottom button');
+  for (var j = 0; j < navs.length; j++) { navs[j].classList.remove('active'); }
+  var nav = document.getElementById('nav-'
